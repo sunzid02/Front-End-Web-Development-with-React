@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Footer(props) {
     return(
@@ -10,10 +10,10 @@ function Footer(props) {
                     <div className="col-4 offset-1 col-sm-2">
                         <h5>Links</h5>
                         <ul className="list-unstyled">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Menu</a></li>
-                            <li><a href="contactus.html">Contact</a></li>
+                            <li><Link to="/home">Home</Link></li>
+                            <li><Link to="/aboutus">About</Link></li>
+                            <li><Link to="/menu">Menu</Link></li>
+                            <li><Link to="/contactus">Contact</Link></li>
                         </ul>
                     </div>
                     <div className="col-7 col-sm-5">
@@ -24,8 +24,8 @@ function Footer(props) {
 		              HONG KONG<br />
                             <i className="fa fa-phone fa-lg"></i>: +852 1234 5678<br />
                             <i className="fa fa-fax fa-lg"></i>: +852 8765 4321<br />
-                            <i className="fa fa-envelope fa-lg"></i>: <a href="mailto:confusion@food.net">
-                                confusion@food.net</a>
+                            <i className="fa fa-envelope fa-lg"></i>: <Link to="mailto:confusion@food.net">
+                                confusion@food.net</Link>
                         </address>
                     </div>
                     <div className="col-12 col-sm-4 align-self-center">
@@ -35,7 +35,7 @@ function Footer(props) {
                             <a className="btn btn-social-icon btn-linkedin" href="http://www.linkedin.com/in/"><i className="fa fa-linkedin"></i></a>
                             <a className="btn btn-social-icon btn-twitter" href="http://twitter.com/"><i className="fa fa-twitter"></i></a>
                             <a className="btn btn-social-icon btn-google" href="http://youtube.com/"><i className="fa fa-youtube"></i></a>
-                            <a className="btn btn-social-icon" href="mailto:"><i className="fa fa-envelope-o"></i></a>
+                            <a className="btn btn-social-icon" to="mailto:"><i className="fa fa-envelope-o"></i></a>
                         </div>
                     </div>
                 </div>
@@ -46,7 +46,7 @@ function Footer(props) {
                 </div>
             </div>
         </div>    
-            
+
     );
 }
 
