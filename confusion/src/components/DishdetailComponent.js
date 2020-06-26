@@ -62,9 +62,6 @@ import { Card, CardImg, CardText, CardBody, CardTitle } from "reactstrap";
             return (<div></div>);
         }
 
-
-
-
         return (
             <div className='row'>
                 <RenderDish dish={ props.dish } />
