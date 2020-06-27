@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import { Nav, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem, Jumbotron } from "reactstrap";
+
+import { 
+    Nav, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem, Jumbotron,
+    Button, Modal, ModalBody, ModalHeader, FormGroup, Label, Input, Form
+} from "reactstrap";
+
 import {  NavLink } from 'react-router-dom';
 
 class Header extends Component{
@@ -8,9 +13,13 @@ class Header extends Component{
         super(props);
 
         this.state={
-            isNavOpen: false
+            isNavOpen: false,
+            isModalOpen: false
         };
+
         this.toggleNav = this.toggleNav.bind(this);
+        this.toggleModal = this.toggleModal.bind(this);
+        this.handleLogin = this.handleLogin.bind(this);
     }
 
     toggleNav(){
@@ -19,12 +28,26 @@ class Header extends Component{
         });
     }
 
+    toggleModal(){
+        this.setState({
+            isModalOpen: !this.state.isModalOpen
+        });
+    }
+
+    handleLogin(event){
+        this.toggleModal();
+        alert("Username: " + this.username.value + " Password: " + this.password.value
+            + " Remember: " + this.remember.checked);
+        event.preventDefault();    
+    }
+
     render(){
         return(
             // react fragment
             // <>
             // </>
             <React.Fragment>
+
                 <Navbar dark expand="md">                   
                     <div className="container">
 
@@ -60,7 +83,15 @@ class Header extends Component{
                                     </NavLink>
                                 </NavItem>
 
-                            </Nav>                        
+                            </Nav> 
+
+                            <Nav className="ml-auto" navbar>
+                                <NavItem>
+                                    <Button outline onClick={this.toggleModal}>
+                                        <span className="fa fa-sign-in fa-lg"></span> Login
+                                    </Button>
+                                </NavItem>
+                            </Nav>                       
                         </Collapse>
                     </div>
                 </Navbar>
@@ -79,6 +110,51 @@ class Header extends Component{
                         </div>
                     </div>
                 </Jumbotron>
+
+                {/* login Modal */}
+                <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal} >
+                    <ModalHeader toggle={this.toggleModal}> Login </ModalHeader>
+                    <ModalBody>
+                        {/* uncontrol form */}
+                        <Form onSubmit={this.handleLogin} > 
+                            {/* username */}
+                            <FormGroup>
+                                <Label htmlFor="username">Username</Label>
+                                <Input type="text" id="username" name="username"
+                                    innerRef={(input)=> this.username = input }
+                                />
+                            </FormGroup>
+                            
+                            {/* pass */}
+                            <FormGroup>
+                                <Label htmlFor="password">Password</Label>
+                                <Input type="password" id="password" name="password"
+                                    innerRef={(input) => this.password = input}
+
+                                />
+                            </FormGroup>
+                            
+                            {/* checkbox */}
+                            <FormGroup check>
+                                <Label check>
+                                    <Input type="checkbox" name="remember"
+                                        innerRef={(input) => this.remember = input}
+
+                                    />
+                                    Remember me
+                                </Label>
+                            </FormGroup>
+
+                            <FormGroup>
+                                <Button type="submit" value="submit" color="primary">
+                                    login
+                                </Button>
+                            </FormGroup>
+                            
+                        </Form>
+                    </ModalBody>
+                </Modal>
+
             </React.Fragment>
         );
     }
