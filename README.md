@@ -4,5 +4,5 @@
   
   ## [Visit the Course](https://www.coursera.org/learn/front-end-react)
   
-## I Strongly recommend to try the exercise before checking the solutions
+## Please before getting the solution, use your head.
 ## Please respect the [Coursera Honor Code](https://learner.coursera.help/hc/en-us/articles/209818863)
