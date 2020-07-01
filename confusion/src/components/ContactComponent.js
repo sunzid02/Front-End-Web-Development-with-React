@@ -3,7 +3,7 @@ import { Breadcrumb, BreadcrumbItem, Button,
      Label,  Col, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-import { Control, LocalForm, Errors } from 'react-redux-form';
+import { Control, Form, Errors, actions } from 'react-redux-form';
 
 
 //// validators
@@ -26,6 +26,8 @@ class Contact extends Component{
     handleSubmit(values){
         console.log("Current State is: " + JSON.stringify( values ) );
         alert("Current State is: " + JSON.stringify( values ) );
+
+        this.props.resetFeedbackForm();
 
             
     }
@@ -84,7 +86,7 @@ class Contact extends Component{
                     </div>
                     
                     <div className="col-12 col-md-9">
-                        <LocalForm onSubmit={ (values) => this.handleSubmit(values) } >
+                        <Form model="feedback" onSubmit={ (values) => this.handleSubmit(values) } >
                             
                             {/* firstname */}
                             <Row className="form-group">
@@ -226,7 +228,7 @@ class Contact extends Component{
                                 </Col>
                             </Row>
 
-                        </LocalForm>
+                        </Form>
                     </div>
 
                 </div>
