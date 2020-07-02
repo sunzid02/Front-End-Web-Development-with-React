@@ -18,30 +18,33 @@
     ## return the previous state in the default case
 
 * */
-import * as ActionTypes from './ActionTypes';
 
+import * as ActionTypes from "./ActionTypes";
 
-
-
-////reducer function
-export const Dishes = (state = {
+export const Dishes = (
+    state = {
         isLoading: true,
         errMess: null,
         dishes: []
-
-    }, action) => {
-
+    },
+    action
+) => {
     switch (action.type) {
         case ActionTypes.ADD_DISHES:
-            return { ...state, isLoading: false, errMess: null, dishes: action.payload }
+            return {
+                ...state,
+                isLoading: false,
+                errMess: null,
+                dishes: action.payload
+            };
 
         case ActionTypes.DISHES_LOADING:
-            return { ...state, isLoading: true, errMess: null, dishes: [] }
+            return { ...state, isLoading: true, errMess: null, dishes: [] };
 
         case ActionTypes.DISHES_FAILED:
-            return { ...state, isLoading: false, errMess: action.payload, dishes: [] }
+            return { ...state, isLoading: false, errMess: action.payload };
 
         default:
             return state;
     }
-}
+};
