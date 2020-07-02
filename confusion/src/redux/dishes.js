@@ -28,7 +28,7 @@ export const Dishes = (
         dishes: []
     },
     action
-) => {
+    ) => {
     switch (action.type) {
         case ActionTypes.ADD_DISHES:
             return {
