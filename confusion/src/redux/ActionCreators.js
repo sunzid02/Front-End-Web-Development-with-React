@@ -37,11 +37,12 @@ export const postComment = (dishId, rating, author, comment)=> (dispatch)=> {
                 throw error;
         }
     },
-    ////if no responmse from server 
-    error => {
-        var errmess = new Error(error.message);
-        throw errmess;
-    })
+        ////if no responmse from server 
+        error => {
+            var errmess = new Error(error.message);
+            throw errmess;
+        }
+    )
     .then( response => response.json() )
     .then( response => dispatch(addComment(response)) )
     .catch(error => {
