@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, CardImg, CardImgOverlay, CardTitle, Breadcrumb, BreadcrumbItem, CardBody, CardText } from "reactstrap";
+import { Card, CardImg, CardTitle, Breadcrumb, BreadcrumbItem, CardBody, CardText } from "reactstrap";
 import { Link } from 'react-router-dom';
 import {
     Button, Modal, ModalBody, ModalHeader, Label, Row, Col
@@ -258,7 +258,7 @@ class CommentForm extends Component {
 
     const DishDetail = (props) => {
 
-        const dish = props.dish
+        // const dish = props.dish
         
         if (props.isLoading) {
             return (

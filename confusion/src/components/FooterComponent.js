@@ -35,7 +35,7 @@ function Footer(props) {
                             <a className="btn btn-social-icon btn-linkedin" href="http://www.linkedin.com/in/"><i className="fa fa-linkedin"></i></a>
                             <a className="btn btn-social-icon btn-twitter" href="http://twitter.com/"><i className="fa fa-twitter"></i></a>
                             <a className="btn btn-social-icon btn-google" href="http://youtube.com/"><i className="fa fa-youtube"></i></a>
-                            <a className="btn btn-social-icon" to="mailto:"><i className="fa fa-envelope-o"></i></a>
+                            <a className="btn btn-social-icon" to="mailto:" href="mailto:confusion@food.net"><i className="fa fa-envelope-o"></i></a>
                         </div>
                     </div>
                 </div>
